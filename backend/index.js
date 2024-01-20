@@ -14,7 +14,7 @@ function authenticateTokenMiddleware(req, res, next) {
   const token = authHeader && authHeader.split(" ")[1];
   if (token == null) return res.sendStatus(401);
 
-  const user = jwt.verify(token, process.env.JWT_SECRET);
+  const user = jwt.verify(token, "secret");
   req.userId = user.userId;
   next();
 }
@@ -76,7 +76,7 @@ app.post("/login", async (req, res) => {
     if (!passwordMatch) {
       return res.status(400).json({ message: "Invalid credentials" });
     }
-    const token = jwt.sign({ userId: user.id }, process.env.JWT_SECRET);
+    const token = jwt.sign({ userId: user.id }, "secret");
     res.json({ token });
 
   }
