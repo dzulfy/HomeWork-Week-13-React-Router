@@ -46,8 +46,8 @@ const Navbar = () => {
       color="white"
     >
       <Link to="/">
-        <Flex align="center" mr={5} cursor="pointer">
-          <Text fontSize="xl" fontWeight="bold">
+        <Flex align="center" mr={5} cursor="pointer" >
+          <Text fontSize="xl" fontWeight="bold" _hover={{ cursor: 'pointer' }}>
             My Website
           </Text>
         </Flex>
